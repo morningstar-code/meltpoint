@@ -15,7 +15,7 @@ interface Props {
 export function Lesson({ scenario, applied, onRun, onReset }: Props) {
   const { t, l } = useI18n();
   // Folded on phones and short windows, where it would cover the design.
-  const [open, setOpen] = useState(() => window.innerWidth > 820 && window.innerHeight > 700);
+  const [open, setOpen] = useState(() => window.innerWidth > 820 && window.innerHeight > 860);
   const [more, setMore] = useState(false);
 
   if (!open) {

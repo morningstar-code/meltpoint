@@ -101,8 +101,9 @@ export function Canvas({ topology, snap, selected, running, fitKey, onSelect, on
       maxY = Math.max(maxY, n.y + NODE_H);
     }
     const pad = 60;
-    // Keep clear of the lesson card that sits along the bottom, when there is room to.
-    const bottom = h > 560 ? 170 : 40;
+    // Keep clear of the lesson card along the bottom, when that leaves room for the design.
+    const lesson = (el.querySelector('.overlay-bl') as HTMLElement | null)?.offsetHeight ?? 0;
+    const bottom = lesson > 0 && h - lesson - 40 > 170 ? lesson + 24 : 40;
     const k = Math.min(1.05, Math.max(MIN_K, Math.min((w - pad * 2) / (maxX - minX), (h - pad - bottom) / (maxY - minY))));
     setView({ k, x: (w - (maxX - minX) * k) / 2 - minX * k, y: (h - bottom + pad / 2 - (maxY - minY) * k) / 2 - minY * k });
   }, [topology.nodes]);
@@ -125,8 +126,11 @@ export function Canvas({ topology, snap, selected, running, fitKey, onSelect, on
       if (autoFit.current) fitRef.current();
     });
     ro.observe(el);
+    // Folding or unfolding the lesson changes the room left for the design.
+    const overlay = el.querySelector('.overlay-bl');
+    if (overlay) ro.observe(overlay);
     return () => ro.disconnect();
-  }, []);
+  }, [fitKey]);
 
   useEffect(() => {
     const svg = svgRef.current;
