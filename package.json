@@ -1,0 +1,49 @@
+{
+  "name": "meltpoint",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Every system has a melting point. A distributed-systems simulator that finds yours.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "lucide-react": "^1.63.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morningstar-code/meltpoint.git"
+  },
+  "homepage": "https://morningstar-code.github.io/meltpoint/",
+  "keywords": [
+    "distributed-systems",
+    "system-design",
+    "simulator",
+    "queueing-theory",
+    "load-testing",
+    "retry-storm",
+    "circuit-breaker",
+    "education"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  }
+}
